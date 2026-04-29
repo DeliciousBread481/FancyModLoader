@@ -3,9 +3,9 @@ name: Build
   
 on:  
   push:  
-    branches: [ fix-modinfo ]  
+    branches: [ 4.0-fix-modinfo ]  
   pull_request:  
-    branches: [ fix-modinfo ]  
+    branches: [ 4.0-fix-modinfo ]  
   workflow_dispatch:  
   
 jobs:  

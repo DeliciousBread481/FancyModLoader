@@ -192,6 +192,11 @@ public class ModInfo implements IModInfo, IConfigurable {
     public Optional<URL> getModURL() {
         return modUrl;
     }
+    
+    @Override  
+    public String toString() {  
+        return "ModInfo{" + modId + " (" + displayName + ") " + version + "}";  
+    }
 
     private ForgeFeature.Bound makeBound(Map.Entry<String, Object> e) {
         if (e.getValue() instanceof String val) {

@@ -277,6 +277,11 @@ public final class ModLoader {
 
                 var errorCount = loadingIssues.size() - issueCountBefore;
                 LOGGER.fatal(LOADING, "Failed to wait for future {}, {} errors found", name, errorCount);
+                // Log the detailed error information with stack traces
+                for (var i = issueCountBefore; i < loadingIssues.size(); i++) {
+                    var loadingError = loadingIssues.get(i);
+                    LOGGER.fatal(LOADING, "Error during {}: {}", name, FMLTranslations.translateIssueEnglish(loadingError), loadingError.cause());
+                }
                 cancelLoading(modList);
                 throw new ModLoadingException(loadingIssues);
             } catch (Exception ignored) {}
